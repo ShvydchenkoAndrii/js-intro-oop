@@ -7,15 +7,23 @@
     stateOfItems = newState;
   }
 
-  function addItem() {
-    const foo = document.getElementById("h2").textContent;
-    const input = document.querySelector('input').checked;
-    const item = {
-      title: foo,
-      completed: input,
-    };
-    stateOfItems.items += JSON.stringify(item);
+  function addItem(item) {
+    const next = { title: item.title, completed: false };
+    stateOfItems.items.push(next);
   }
-  addItem();
-  console.log(stateOfItems);
+
+  function deleteItem(num) {
+    stateOfItems.items.splice(num, 1);
+  }
+
+  function toggleCompleted(num) {
+        stateOfItems.items[num].completed = true    
+      }
+    
+  
+
+  addItem({ title: "foo1" });
+  addItem({ title: "foo2" });
+  addItem({ title: "foo3" });
+  toggleCompleted(1);
 })();
