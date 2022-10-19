@@ -1,31 +1,30 @@
 (function () {
-  let stateOfItems = {
+  let state = {
     items: [],
   };
 
-  function setStateOfItems() {
-    stateOfItems = newState;
+  function setState(state) {
+    state = newState;
   }
 
   function addItem(item) {
     const next = { title: item.title, completed: true };
-    stateOfItems.items.push(next);
+    state.items.push(next);
+    setState(state)
   }
 
   function deleteItem(num) {
-    stateOfItems.items.splice(num, 1);
+    state.items.splice(num, 1);
+    setState(state)
   }
 
   function toggleCompleted(num) {
-    stateOfItems.items[num].completed = !stateOfItems.items[num].completed;
+    state.items[num].completed = !state.items[num].completed;
+    setState(state)
   }
-
+  
   addItem({ title: "foo1" });
   addItem({ title: "foo2" });
   addItem({ title: "foo3" });
-  toggleCompleted(1);
-  console.log(stateOfItems);
+  console.log(state)
 })();
-const a = 12;
-const b = !a;
-console.log(b);
