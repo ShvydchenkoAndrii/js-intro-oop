@@ -8,7 +8,7 @@
   }
 
   function addItem(item) {
-    const next = { title: item.title, completed: false };
+    const next = { title: item.title, completed: true };
     stateOfItems.items.push(next);
   }
 
@@ -17,18 +17,15 @@
   }
 
   function toggleCompleted(num) {
-        if (stateOfItems.items[num].completed === true){
-          stateOfItems.items[num].completed = false 
-        }else if (stateOfItems.items[num].completed === false){
-          stateOfItems.items[num].completed = true 
-      }
+    stateOfItems.items[num].completed = !stateOfItems.items[num].completed;
   }
-    
-  
 
   addItem({ title: "foo1" });
   addItem({ title: "foo2" });
   addItem({ title: "foo3" });
   toggleCompleted(1);
-  console.log(stateOfItems)
+  console.log(stateOfItems);
 })();
+const a = 12;
+const b = !a;
+console.log(b);
