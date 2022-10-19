@@ -17,8 +17,12 @@
   }
 
   function toggleCompleted(num) {
-        stateOfItems.items[num].completed = true    
+        if (stateOfItems.items[num].completed === true){
+          stateOfItems.items[num].completed = false 
+        }else if (stateOfItems.items[num].completed === false){
+          stateOfItems.items[num].completed = true 
       }
+  }
     
   
 
@@ -26,4 +30,5 @@
   addItem({ title: "foo2" });
   addItem({ title: "foo3" });
   toggleCompleted(1);
+  console.log(stateOfItems)
 })();
