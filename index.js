@@ -5,18 +5,23 @@
 
   function setState(newState) {
     state = newState;
-    render(state);
   }
 
   function render(state) {
     const app = document.getElementById("app");
-    app.innerHTML = `
-    <input type='checkbox' class='checkbox'>
-    <h2 class='txt'>Txt</h2>
-    <button class='butt1' id='butt'>delete</button>
-    <p>${JSON.stringify(state.items.length)}</p>`;
+    for (let i = 1; i <= state.items.length; i++) {
+      if (i > 0) {
+        app.innerHTML += `<div>
+      <input type='checkbox' class='checkbox'>
+      <h2 class='txt'>Txt</h2>
+      <button class='butt1' id='butt'>delete</button>
+      </div>`;
+      }
+    }
+    app.innerHTML += `<p>${JSON.stringify(state.items.length)}</p>`;
   }
-  setState(state);
+
+  
 
   function addItem(item) {
     const next = { title: item.title, completed: true };
@@ -36,5 +41,7 @@
 
   addItem({ title: "foo1" });
   addItem({ title: "foo2" });
+  
+  render(state);
   console.log(state);
 })();
