@@ -7,19 +7,18 @@
     state = newState;
   }
 
-  function render(state) {
-    const app = document.getElementById("app");
-    for (let i = 1; i <= state.items.length; i++) {
-      if (i > 0) {
-        app.innerHTML += `<div>
-      <input type='checkbox' class='checkbox'>
-      <h2 class='txt'>Txt</h2>
-      <button class='butt1' id='butt'>delete</button>
-      </div>`;
-      }
+    function render(state) {
+      const app = document.getElementById("app");
+      for (let elem of state.items) {
+          app.innerHTML += `<div>
+        <input type='checkbox' class='checkbox'>
+        <h2 class='txt'>${elem.title}</h2>
+        <button class='butt1' id='butt'>delete</button>
+        </div>`;
+        }
+      app.innerHTML += `<p>${state.items.length}</p>`;
     }
-    app.innerHTML += `<p>${JSON.stringify(state.items.length)}</p>`;
-  }
+  
 
   
 
