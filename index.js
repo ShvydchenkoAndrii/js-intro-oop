@@ -2,15 +2,16 @@
   let state = {
     items: [],
   };
-
+  const app = document.getElementById("app");
   function setState(newState) {
     state = newState;
+    render(state);
   }
 
     function render(state) {
-      const app = document.getElementById("app");
+      app.innerHTML = ''
       for (let elem of state.items) {
-          app.innerHTML += `<div>
+        app.innerHTML += `<div>
         <input type='checkbox' class='checkbox'>
         <h2 class='txt'>${elem.title}</h2>
         <button class='butt1' id='butt'>delete</button>
@@ -41,6 +42,5 @@
   addItem({ title: "foo1" });
   addItem({ title: "foo2" });
   
-  render(state);
   console.log(state);
 })();
