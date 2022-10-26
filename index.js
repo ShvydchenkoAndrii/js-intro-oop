@@ -49,15 +49,3 @@
 
   console.log(app);
 })();
-
-const upperCase = (arg) => arg.toUpperCase();
-const tripleExclaim = (arg) => arg + "!!!";
-const split = (arg) => arg.split("_");
-const join = (arg) => arg.join(" ");
-const copy = (arg) => arg + " " + arg;
-const arg = (arg) => arg;
-const createComposition = (g, f) => (x) => g(f(x));
-const allFunc = [copy, join, split, tripleExclaim, upperCase];
-const prevRes = (...) => allFunc.reduce(createComposition, arg);
-const result = (arg) => prevRes(arg);
-console.log(result("by_ticket_now"));
