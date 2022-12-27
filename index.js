@@ -13,17 +13,15 @@
     const next = { title: inputVal, completed: false };
     inputVal !== "" ? state.items.push(next) : null;
     setState(state);
-    console.log(state.items);
   };
   window.deleteItem = (num) => {
     state.items.splice(num, 1);
     setState(state);
-    console.log(state.items);
   };
   window.toggleCompleted = (num) => {
     state.items[num].completed = !state.items[num].completed;
     setState(state);
-    console.log(state.items);
+    console.log(state.items[num]);
   };
 
   window.completedFilter = () => {
@@ -52,7 +50,9 @@
     for (let elem of state.items) {
       const elemInd = state.items.indexOf(elem);
       app.innerHTML += `<div data-index="${elemInd}">
-        <input  onchange="toggleCompleted(${elemInd})" type='checkbox' id='checkbox'>
+        <input  onchange="toggleCompleted(${elemInd})" ${
+        elem.completed ? "checked" : null
+      } type='checkbox'>
         <h2 class='txt'>${elem.title}</h2>
         <button onclick="deleteItem(${elemInd})" class='butt1' id='butt' ">delete</button>
         </div>`;
